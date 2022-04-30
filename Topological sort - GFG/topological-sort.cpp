@@ -12,7 +12,39 @@ class Solution
     Topological ordering are not unique
     */
 	public:
-	
+	void findTopo(int node,vector<int> &vis,stack<int> &stk,vector<int> adj[])
+	{
+	    vis[node]=1;
+	    for(auto nbr:adj[node])
+	    {
+	        if(!vis[nbr])
+	        {
+	            findTopo(nbr,vis,stk,adj);
+	        }
+	    }
+	    stk.push(node);
+	}
+	vector<int> topoSort(int V, vector<int> adj[]) 
+	{
+	    vector<int> vis(V,0);
+	    stack<int> stk;
+	    for(int i=0;i<V;i++)
+	    {
+	        if(!vis[i])
+	        {
+	            findTopo(i,vis,stk,adj);
+	        }
+	    }
+	    
+	    vector<int> ans;
+	    while(stk.size())
+	    {
+	        ans.push_back(stk.top());
+	        stk.pop();
+	    }
+	    return ans;
+	}
+	/*
 	vector<int> topoSort(int V, vector<int> adj[]) 
 	{
 	    // code here
@@ -44,6 +76,7 @@ class Solution
 	    return ans;
 	    
 	}
+	*/
 };
 
 // { Driver Code Starts.
