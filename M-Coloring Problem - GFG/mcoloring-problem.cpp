@@ -38,8 +38,7 @@ bool graphColoring(bool graph[101][101], int m, int n)
 {
     // your code here
     vector<int> color(n,0);
-    if(solve(0,n,m,color,graph)==true) return true;
-    else return false;
+    return solve(0,n,m,color,graph);
 }
 
 // { Driver Code Starts.
