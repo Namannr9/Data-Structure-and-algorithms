@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void solve(int index,int k,int n,vector<int> &ds,vector<vector<int>> &ans)
+    void solve(int st,int k,int n,vector<int> &ds,vector<vector<int>> &ans)
     {
         if(k<=0)
         {
@@ -8,7 +8,7 @@ public:
             return;
         }
         
-        for(int i=index;i<=9;i++)
+        for(int i=st;i<=9;i++)    
         {
             ds.push_back(i);
             solve(i+1,k-1,n-i,ds,ans);
