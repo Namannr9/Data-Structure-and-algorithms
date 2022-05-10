@@ -1,0 +1,1 @@
+Herer we use **backtracking** tecnique to solve this problem.
