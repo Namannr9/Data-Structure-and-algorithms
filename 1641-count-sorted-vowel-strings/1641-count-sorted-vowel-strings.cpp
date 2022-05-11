@@ -1,5 +1,42 @@
 class Solution {
 public:
+    
+     int solve(int index,int len,int n,vector<vector<int>> &dp)
+    {
+        if(len==n) return 1;
+        
+        if(dp[index][len]!=0) return dp[index][len];
+        for(int i=index;i<5;i++) dp[index][len]+=solve(i,len+1,n,dp);          
+        return dp[index][len];
+        
+    }
+    int countVowelStrings(int n) 
+    {
+        int len=0;
+        vector<vector<int>> dp(5,vector<int>(n,0));
+        return solve(0,len,n,dp);
+    }
+    /*
+    int solve(int index,int n,vector<vector<int>> &dp)
+    {
+        if(n==0) return 1;
+        if(dp[n][index]!=-1) return dp[n][index];
+        int ans=0;
+        for(int i=index;i<5;i++)
+        {
+            ans+=solve(i,n-1,dp);
+        }
+        return dp[n][index]=ans;
+    }
+    int countVowelStrings(int n) 
+    {
+        vector<vector<int>> dp(n+1,vector<int>(5,-1));
+        return solve(0,n,dp);
+    }
+    */
+    
+    
+    /*
     int solve(int index,int len,int &ans,int n,vector<vector<int>> &dp)
     {
         if(len==n) 
@@ -19,7 +56,7 @@ public:
         vector<vector<int>> dp(5,vector<int>(n,0));
         return solve(0,len,ans,n,dp);
     }
-    
+    */
     /*
      void solve(int index,int len,int n,int &ans,string ds,string vov)
     {
