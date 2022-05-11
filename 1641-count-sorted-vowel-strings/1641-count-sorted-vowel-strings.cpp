@@ -1,6 +1,27 @@
 class Solution {
 public:
-    void solve(int index,int len,int n,int &ans,string ds,string vov)
+    void solve(int index,int len,int &ans,int n)
+    {
+        if(len==n) 
+        {
+            ans++;
+            return;
+        }
+        for(int i=index;i<5;i++) solve(i,len+1,ans,n);
+        
+            
+        
+    }
+    int countVowelStrings(int n) 
+    {
+        int ans=0;
+        int len=0;
+        solve(0,len,ans,n);
+        return ans;
+    }
+    
+    /*
+     void solve(int index,int len,int n,int &ans,string ds,string vov)
     {
         if(len==n)
         {
@@ -28,6 +49,7 @@ public:
         return ans;
     }
     
+    */
     
     /*
      void solve(int index,int n,int &ans,string ds,string vov)
