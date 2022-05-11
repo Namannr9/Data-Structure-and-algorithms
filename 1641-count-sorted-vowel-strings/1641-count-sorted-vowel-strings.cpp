@@ -1,23 +1,23 @@
 class Solution {
 public:
-    void solve(int index,int len,int &ans,int n)
+    int solve(int index,int len,int &ans,int n,vector<vector<int>> &dp)
     {
         if(len==n) 
         {
-            ans++;
-            return;
-        }
-        for(int i=index;i<5;i++) solve(i,len+1,ans,n);
-        
             
+            return 1;
+        }
+        if(dp[index][len]!=0) return dp[index][len];
+        for(int i=index;i<5;i++) dp[index][len]+=solve(i,len+1,ans,n,dp);          
+        return dp[index][len];
         
     }
     int countVowelStrings(int n) 
     {
         int ans=0;
         int len=0;
-        solve(0,len,ans,n);
-        return ans;
+        vector<vector<int>> dp(5,vector<int>(n,0));
+        return solve(0,len,ans,n,dp);
     }
     
     /*
