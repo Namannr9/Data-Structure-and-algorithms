@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void solve(int index,vector<int> &nums,vector<vector<int>> &ans)
+    void solve(int index,vector<int> nums,vector<vector<int>> &ans)
     {
         
         if(index==nums.size())
@@ -13,8 +13,6 @@ public:
         {
             swap(nums[i],nums[index]);
             solve(index+1,nums,ans);
-            
-            swap(nums[i],nums[index]);
         }
         
     }
