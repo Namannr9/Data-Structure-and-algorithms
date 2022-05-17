@@ -19,8 +19,8 @@ public:
             ans=root;
             return;
         }
-        solve(root->left,target);
-        solve(root->right,target);
+        if(ans==NULL) solve(root->left,target);
+        if(ans==NULL) solve(root->right,target);
     }
     TreeNode* getTargetCopy(TreeNode* original, TreeNode* cloned, TreeNode* target) 
     {
