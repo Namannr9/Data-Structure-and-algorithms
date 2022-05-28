@@ -2,16 +2,27 @@ class Solution {
 public:
     int missingNumber(vector<int>& nums) 
     {
-        int len=nums.size();
+        int xr=0;
+        int i=0;
+        for(;i<nums.size();i++)
+        {
+            xr=xr^nums[i]^i;
+        }
+        return xr^i;
+    }
+    
+    /*
+    
+    // using sum variable
+    int len=nums.size();
         int sum=len*(len+1)/2;
         for(int i=0;i<len;i++)
         {
             sum-=nums[i];
         }
         return sum;
-    }
     
-    /*
+    
     // binary search
         sort(nums.begin(),nums.end());
         int i=0;
