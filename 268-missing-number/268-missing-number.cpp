@@ -2,14 +2,32 @@ class Solution {
 public:
     int missingNumber(vector<int>& nums) 
     {
-        int xr=0;
+        unordered_map<int,int> mp;
+        for(int i=0;i<nums.size();i++)
+        {
+            mp[nums[i]]=1;
+        }
+        
+        int ans=-1;
+        for(int i=0;i<nums.size()+1;i++)
+        {
+            if(mp.find(i)==mp.end()) ans=i;
+        }
+        
+        return ans;
+    }
+    
+    
+    /*
+    bit manipulation
+     int xr=0;
         int i=0;
         for(;i<nums.size();i++)
         {
             xr=xr^nums[i]^i;
         }
         return xr^i;
-    }
+    */
     
     /*
     
