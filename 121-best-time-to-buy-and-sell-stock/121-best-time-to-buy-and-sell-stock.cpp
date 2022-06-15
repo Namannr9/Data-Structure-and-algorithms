@@ -1,47 +1,32 @@
 class Solution {
 public:
-    
-    // brute force -> run loops select i item for buy
-    // j for sale and find maximum profit
-    
-    
-    // optimize->
-    // lmin->overall minium up till i
-    // cost=sale item at present day
-    // profit=overall maximum profit
     int maxProfit(vector<int>& prices) 
     {
-        int lmin=prices[0];
-        int cost=0;
-        int profit=0;
-        int n=prices.size();
-        for(int i=1;i<n;i++)
+        int ans=0;
+        int mn=INT_MAX;
+        for(int i=0;i<prices.size();i++)
         {
-            cost=prices[i]-lmin;
-            profit=max(profit,cost);
-            lmin=min(lmin,prices[i]);
+            int mn=min(mn,prices[i]);
+            ans=max(ans,prices[i]-mn);
         }
-        return profit;
+        return ans;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
+    /*
+    brute force Time limit exceed
+    int maxProfit(vector<int>& prices) 
+    {
+        int ans=0;
+        int n=prices.size();
+        for(int i=0;i<n;i++)
+        {
+            int buy=prices[i];
+            for(int j=i+1;j<n;j++)
+            {
+                int sell=prices[j]-prices[i];
+                ans=max(ans,sell);
+            }
+        }
+        return ans;
+    }
+    */
 };
