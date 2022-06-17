@@ -4,22 +4,20 @@ public:
     {
         vector<vector<int>> ans;
         sort(intervals.begin(),intervals.end());
-        if(intervals.size()==0) return ans;
-        
-        vector<int> pre=intervals[0];
-        for(auto cur:intervals)
+        vector<int> cur=intervals[0];
+        for(auto v:intervals)
         {
-            if(cur[0]<=pre[1]) 
+            if(v[0]<=cur[1])
             {
-                pre[1]=max(pre[1],cur[1]);
+                cur[1]=max(cur[1],v[1]);
             }
             else
             {
-                ans.push_back(pre);
-                pre=cur;
+                ans.push_back(cur);
+                cur=v;
             }
         }
-        ans.push_back(pre);
+        ans.push_back(cur);
         return ans;
     }
 };
