@@ -10,7 +10,6 @@ public:
          vector<vector<int>> ans;
          sort(intervals.begin(),intervals.end());
          vector<int> cur=intervals[0];
-         
          for(auto v:intervals)
          {
              if(v[0]<=cur[1])
