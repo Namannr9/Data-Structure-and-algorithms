@@ -9,6 +9,21 @@ class Solution{
     public:
     string removeConsecutiveCharacter(string S)
     {
+        string ans="";
+        ans+=S[0];
+        
+        for(int i=1;i<S.size();i++)
+        {
+            if(S[i-1]!=S[i])
+            {
+                ans+=S[i];
+            }
+        }
+        return ans;
+    }
+    /*
+    string removeConsecutiveCharacter(string S)
+    {
         // code here.
         string ans="";
         ans+=S[0];
@@ -25,6 +40,7 @@ class Solution{
         
         
     }
+    */
 };
 
 // { Driver Code Starts.
