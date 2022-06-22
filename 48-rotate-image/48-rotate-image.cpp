@@ -1,5 +1,29 @@
 class Solution {
 public:
+    
+    /*
+    if want to roated matrix anti clockwise just reverse column 
+    */
+    void rotate(vector<vector<int>>& matrix) 
+    {
+        int n=matrix.size();
+        for(int i=0;i<n;i++)   // find the transponse
+        {
+            for(int j=0;j<i;j++)
+            {
+                swap(matrix[i][j],matrix[j][i]);
+            }
+        }
+        
+        for(int i=0;i<n;i++)  // reverse each row
+        {
+            reverse(matrix[i].begin(),matrix[i].end());
+        }
+    }
+    
+    /*
+    
+    We create new matrix and copy in that manner that it looks like that we roated it
     void rotate(vector<vector<int>>& matrix) 
     {
         int n=matrix.size();
@@ -15,7 +39,7 @@ public:
             }
             r++;
         }
-        matrix=tmp;
-        
+        matrix=tmp;   
     }
+    */
 };
