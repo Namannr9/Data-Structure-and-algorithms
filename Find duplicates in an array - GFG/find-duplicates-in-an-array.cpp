@@ -8,20 +8,19 @@ class Solution{
     vector<int> duplicates(int arr[], int n) 
     {
         vector<int> ans;
-        sort(arr,arr+n);
-        int pre=-1;
-        for(int i=1;i<n;i++)
+        
+        for(int i=0;i<n;i++)
         {
-            if(arr[i]==arr[i-1] && arr[i]!=pre)
-            { 
-                
-                ans.push_back(arr[i]);
-                pre=arr[i];
-            }
+            arr[arr[i]%n]=arr[arr[i]%n]+n;   
         }
         
-     if(ans.size()==0) ans.push_back(-1);
-     return ans;
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i]/n > 1) ans.push_back(i);
+        }
+        if(ans.size()==0) ans.push_back(-1);
+        return ans;
+        
     }
 };
 
