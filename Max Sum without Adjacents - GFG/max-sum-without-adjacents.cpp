@@ -9,6 +9,20 @@ using namespace std;
 
 class Solution{
 public:	
+    int findMaxSum(int *arr, int n) 
+	{
+	    int dp[n];
+	    dp[0]=arr[0];
+	    dp[1]=max(arr[0],arr[1]);
+	    for(int i=2;i<n;i++)
+	    {
+	        dp[i]=max(arr[i]+dp[i-2],dp[i-1]);
+	    }
+	    return dp[n-1];
+	    
+	}
+    /*
+    memoization
     int solve(int *arr,int index,int *dp)
 	{
 	    if(index<0) return 0;
@@ -23,6 +37,7 @@ public:
 	    for(int i=0;i<n+1;i++) dp[i]=-1;
 	    return solve(arr,n-1,dp);
 	}
+	*/
 
 	
 /*
