@@ -104,7 +104,8 @@ class Solution{
         if(root==NULL) return true;
         if(root->left==NULL && root->right==NULL)
         {
-            if(pre==-1){
+            if(pre==-1)
+            {
                 pre=cur;
             }
             
