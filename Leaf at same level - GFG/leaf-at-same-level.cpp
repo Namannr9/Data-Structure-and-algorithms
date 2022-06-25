@@ -99,26 +99,21 @@ struct Node
 class Solution{
   public:
     /*You are required to complete this method*/
-    bool solve(Node *root,int &pre,int cur)
+    bool solve(Node *root,int &pre,int level)
     {
         if(root==NULL) return true;
         if(root->left==NULL && root->right==NULL)
         {
-            if(pre==-1)
-            {
-                pre=cur;
-            }
-            
-            return pre==cur;
+            if(pre==-1) pre=level;
+            return pre==level;
         }
-        
-        return solve(root->left,pre,cur+1) && solve(root->right,pre,cur+1);
+        return solve(root->left,pre,level+1) && solve(root->right,pre,level+1);
     }
     bool check(Node *root)
     {
-        int cur=0;
-        int pre=-1;
-        return solve(root,pre,cur);
+       int level=0;
+       int pre=-1;
+       return solve(root,pre,level);
     }
 };
 
