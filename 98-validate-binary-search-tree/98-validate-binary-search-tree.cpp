@@ -11,6 +11,27 @@
  */
 class Solution {
 public:
+   void solve(TreeNode *root,TreeNode * &pre,bool &ans)
+    {
+        if(root==NULL) return;
+        solve(root->left,pre,ans);
+        if(pre && root->val<=pre->val)
+        {
+            ans=0;
+            return;
+        }
+        pre=root;
+        solve(root->right,pre,ans);
+    }
+    bool isValidBST(TreeNode* root) 
+    {
+        TreeNode *pre=NULL;
+        bool ans=true;
+        solve(root,pre,ans);
+        return ans;
+    }
+    
+    /*
     bool solve(TreeNode *root,long min,long max)
     {
         if(root==NULL) return true;
@@ -24,4 +45,5 @@ public:
     {
         return solve(root,LONG_MIN,LONG_MAX);    
     }
+    */
 };
