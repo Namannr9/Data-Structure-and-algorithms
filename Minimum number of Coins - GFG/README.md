@@ -1,5 +1,5 @@
 # Minimum number of Coins
-## Easy 
+##  Easy 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an infinite supply of each denomination of Indian currency&nbsp;{ 1, 2, 5, 10, 20, 50, 100, 200, 500, 2000 } and a target value N.<br>
 Find the minimum number of coins and/or notes needed to make the change for Rs N.</span></p>
