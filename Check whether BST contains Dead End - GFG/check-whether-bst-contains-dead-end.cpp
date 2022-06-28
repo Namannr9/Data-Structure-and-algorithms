@@ -94,13 +94,13 @@ int main()
 // } Driver Code Ends
 
 
-/*The Node structure is
-struct Node {
-int data;
-Node * right, * left;
-};*/
 
-/*You are required to complete below method */
+/* we can also use the map to store value
+ and can check the for every element the data-1 and data+1 
+ if present then we return true
+*/
+
+
 bool solve(Node *root,int min,int max)
 {
     if(root==NULL) return false;
