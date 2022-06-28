@@ -72,6 +72,17 @@ class Solution{
             else ans[i]=suc->data;
         }
         return ans;
+        /*
+         set<int> st;
+       for(int i=n-1; i>=0; i--){
+           st.insert(arr[i]);
+           auto find=st.upper_bound(arr[i]);
+           if(find==st.end())
+           arr[i]=-1;
+           else arr[i]=*find;
+       }
+       return arr;
+        */
     }
 };
 
