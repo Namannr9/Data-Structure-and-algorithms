@@ -6,11 +6,10 @@ using namespace std;
 class Solution{   
 public:
     string smallestNumber(int S, int D)
-    {   
+    {
         if(D*9 < S) return "-1";
         
         string ans="";
-        
         for(int i=D-1;i>=0;i--)
         {
             if(S>9)
@@ -30,7 +29,7 @@ public:
                     i--;
                     while(i>0)
                     {
-                        ans='0'+ans;
+                        ans="0"+ans;
                         i--;
                     }
                     ans="1"+ans;
