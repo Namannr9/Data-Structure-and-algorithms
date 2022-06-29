@@ -31,11 +31,9 @@ long long int maxSum(int arr[], int n)
     {
         ans+=arr[r]-arr[l];
         l++;
-        if(r>l) ans+=arr[r]-arr[l];
+        if(l<r) ans+=arr[r]-arr[l];
         r--;
     }
-    
     ans+=arr[l]-arr[0];
     return ans;
-    
 }
