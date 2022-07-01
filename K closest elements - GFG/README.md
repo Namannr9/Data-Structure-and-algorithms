@@ -1,5 +1,5 @@
 # K closest elements
-## Easy 
+##  Easy 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given a sorted array, arr[] of N integers, and a value X.&nbsp;Find the K closest elements to X in arr[].<br>
 Keep the following points in mind:</span></p>
