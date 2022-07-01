@@ -58,6 +58,29 @@ int i,j;
             count++;
         }return ans;
     }
+    
+    /*
+     vector<int> printKClosest(vector<int> arr, int n, int k, int x) 
+    {
+        priority_queue<pair<int,int>> pq;
+        
+        vector<int> ans;
+        for(int i=0;i<n;i++)
+        {
+            int dif=abs(x-arr[i]);
+            if(dif!=0) pq.push({dif,-1*arr[i]});
+            if(pq.size() > k) pq.pop();
+        }
+        
+        while(pq.size())
+        {
+            ans.push_back(-1*pq.top().second);
+            pq.pop();
+        }
+        reverse(ans.begin(),ans.end());
+        return ans;
+    }
+    */
 };
 
 // { Driver Code Starts.
