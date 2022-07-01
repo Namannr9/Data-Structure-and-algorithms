@@ -13,6 +13,29 @@ class Solution
     //Function to find if there is a celebrity in the party or not.
     int celebrity(vector<vector<int> >& mat, int n) 
     {
+        int i=0;
+        int j=n-1;
+        // this loop find assumed candidate for celebrity
+        while(i<j)
+        {
+            if(mat[i][j]==1) i++;   // i knows j;
+            else j--;     // i don't know j  it means j can not be a celebrity
+        }
+        
+        int can=i;
+        for(i=0;i<n;i++)
+        {
+            if(i!=can)
+            {
+                if(mat[i][can]==0 || mat[can][i]==1) return -1;
+            }
+        }
+        return can;
+        
+    }
+    /*
+    int celebrity(vector<vector<int> >& mat, int n) 
+    {
         vector<int> in(n,0);
         vector<int> out(n,0);
         
@@ -36,6 +59,7 @@ class Solution
         
         
     }
+    */
 };
 
 // { Driver Code Starts.
