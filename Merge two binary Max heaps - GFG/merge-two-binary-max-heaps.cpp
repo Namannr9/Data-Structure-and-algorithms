@@ -12,7 +12,30 @@ using namespace std;
 
 class Solution{
     public:
-    void heapify(vector<int> &arr,int i,int n)
+   
+   
+    vector<int> mergeHeaps(vector<int> &a, vector<int> &b, int n, int m) 
+    {
+        for(int i=0;i<m;i++)
+        {
+            a.push_back(b[i]);
+            
+            int n=a.size()-1;
+            while(n>0)
+            {
+                if(a[(n-1)/2] < a[n])
+                {
+                    swap(a[(n-1)/2],a[n]);
+                    n=(n-1)/2;
+                }
+                else break;
+            }
+        }
+        return a;
+    }
+   
+   
+   /* void heapify(vector<int> &arr,int i,int n)
     {
         if(i>=n) return;
         int largest=i;
@@ -46,6 +69,8 @@ class Solution{
         for(int i=(k/2)-1;i>=0;i--) heapify(arr,i,k);
         return arr;
     }
+    
+    */
 };
 
 // { Driver Code Starts.
