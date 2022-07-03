@@ -4,14 +4,13 @@ using namespace std;
 
 
  // } Driver Code Ends
-
 class Solution{
     public:
     string removeConsecutiveCharacter(string S)
     {
+        // code here.
         string ans="";
         ans+=S[0];
-        
         for(int i=1;i<S.size();i++)
         {
             if(S[i-1]!=S[i])
@@ -21,26 +20,6 @@ class Solution{
         }
         return ans;
     }
-    /*
-    string removeConsecutiveCharacter(string S)
-    {
-        // code here.
-        string ans="";
-        ans+=S[0];
-        char pre=S[0];
-        for(int i=0;i<S.size();i++)
-        {
-            if(S[i]!=pre)
-            {
-                ans+=S[i];
-                pre=S[i];
-            }
-        }
-        return ans;
-        
-        
-    }
-    */
 };
 
 // { Driver Code Starts.
