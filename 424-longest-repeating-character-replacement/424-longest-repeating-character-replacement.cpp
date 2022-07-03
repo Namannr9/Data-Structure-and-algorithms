@@ -4,16 +4,15 @@ public:
     {
         int l=0;
         int r=0;
-        int n=s.size();
-        int window=0;
-        int ans=0;
         int same=0;
         unordered_map<char,int> mp;
-        while(r<n)
+        int window=0;
+        int ans=0;
+        while(r<s.size())
         {
             mp[s[r]]++;
-            same=max(same,mp[s[r]]);
             window=r-l+1;
+            same=max(same,mp[s[r]]);
             if(window-same > k)
             {
                 mp[s[l]]--;
