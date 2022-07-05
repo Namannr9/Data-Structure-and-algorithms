@@ -1,5 +1,26 @@
 class Solution {
 public:
+    void bracket(vector<string>& v, string str, int o, int c, int n)
+    {
+        if(str.length() == n*2)
+        {
+            v.push_back(str);
+            return ;
+        }
+        if(o < n)
+            bracket(v, str+"(", o+1, c, n);
+        if(c < o)
+            bracket(v, str+")", o, c+1, n);
+    }
+    vector<string> generateParenthesis(int n) {
+        vector<string> p ;
+        bracket(p, "", 0, 0, n);
+        return p ;
+    }
+};
+/*
+class Solution {
+public:
     bool isValid(string s)
     {
         int sum=0;
@@ -32,3 +53,4 @@ public:
         return ans;
     }
 };
+*/
