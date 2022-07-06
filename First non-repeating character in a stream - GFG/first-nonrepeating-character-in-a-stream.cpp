@@ -5,25 +5,30 @@ using namespace std;
  // } Driver Code Ends
 class Solution {
 	public:
-		string FirstNonRepeating(string A)
+	/*
+	vis vector store the frequency of character
+	In queue we store non repeating element
+	*/
+		string FirstNonRepeating(string s)
 		{
 		    queue<char> q;
 		    vector<int> vis(26,0);
 		    string ans="";
-		    for(int i=0;i<A.size();i++)
+	
+		    
+		    for(int i=0;i<s.size();i++)
 		    {
-		        q.push(A[i]);
-		        vis[A[i]-'a']++;
+		        q.push(s[i]);
+		        vis[s[i]-'a']++;
 		        
 		        while(q.size())
 		        {
-		            if(vis[q.front()-'a'] > 1) q.pop();
+		            if(vis[q.front()-'a']>1) q.pop();
 		            else break;
 		        }
 		        
-		        if(q.size()==0) ans+="#";
-		        else ans+=q.front();
-		        
+		        if(q.size()) ans+=q.front();
+		        else ans+="#";
 		    }
 		    return ans;
 		}
