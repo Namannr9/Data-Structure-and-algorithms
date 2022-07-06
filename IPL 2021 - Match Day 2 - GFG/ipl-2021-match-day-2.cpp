@@ -16,7 +16,7 @@ class Solution {
             
             while(dq.size() && nums[dq.back()]<nums[i]) dq.pop_back();
             dq.push_back(i);
-            if(i+1>=k) ans.push_back(nums[dq.front()]);
+            if(i>=k-1) ans.push_back(nums[dq.front()]);
         }
         return ans;
     }
