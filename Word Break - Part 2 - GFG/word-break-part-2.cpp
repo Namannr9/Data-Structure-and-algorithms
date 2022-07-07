@@ -9,7 +9,7 @@ using namespace std;
 
 class Solution{
 public:
-    void solve(string tmp,string s,vector<string> &ans,vector<string> &dict)
+    void solve(string tmp,string s,vector<string>&dict,vector<string> &ans)
     {
         if(s.size()==0)
         {
@@ -18,24 +18,22 @@ public:
             return;
         }
         
-        for(int i=0;i<s.size();i++)
+        for(int i=1;i<=s.size();i++)
         {
-            string left=s.substr(0,i+1);
+            string left=s.substr(0,i);
             if(find(dict.begin(),dict.end(),left)!=dict.end())
             {
-                string right=s.substr(i+1);
-                solve(tmp+left+" ",right,ans,dict);
+                string right=s.substr(i);
+                solve(tmp+left+" ",right,dict,ans);
             }
         }
     }
     vector<string> wordBreak(int n, vector<string>& dict, string s)
     {
-        // code here
         vector<string> ans;
         string tmp="";
-        solve(tmp,s,ans,dict);
+        solve(tmp,s,dict,ans);
         return ans;
-        
     }
 };
 
