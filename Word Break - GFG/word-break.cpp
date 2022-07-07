@@ -14,23 +14,22 @@ using namespace std;
 class Solution
 {
 public:
-    int solve(string &a,vector<string> &dict)
+    int solve(string a,vector<string> &dict)
     {
         if(a.size()==0) return true;
         
         for(int i=1;i<=a.size();i++)
         {
-            string left=a.substr(0,i);
-            string right=a.substr(i);
+            string left=a.substr(0,i);  // start from zero index ans length of i
+            string right=a.substr(i);   // start from ith index and full length of string
             
-            if(find(dict.begin(),dict.end(),left)!=dict.end() && solve(right,dict)) return true;
-            
+            if(find(dict.begin(),dict.end(),left)!=dict.end() && solve(right,dict)) return 1;
         }
-        return false;
+        return 0;
     }
-    int wordBreak(string A, vector<string> &B) 
+    int wordBreak(string a, vector<string> &dict) 
     {
-        return solve(A,B);
+        return solve(a,dict);
     }
 };
 
