@@ -10,6 +10,7 @@ public:
         if(D*9 < S) return "-1";
         
         string ans="";
+        
         for(int i=D-1;i>=0;i--)
         {
             if(S>9)
