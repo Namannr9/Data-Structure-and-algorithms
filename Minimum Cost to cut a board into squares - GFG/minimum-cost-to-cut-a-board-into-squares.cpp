@@ -16,10 +16,10 @@ public:
         
         int i=0;
         int j=0;
+        int cost=0;
         
         int hc=1;
         int vc=1;
-        int cost=0;
         while(i<n && j<m)
         {
             if(x[i]>y[j])
@@ -39,11 +39,13 @@ public:
         while(i<n)
         {
             cost+=vc*x[i];
+            hc++;
             i++;
         }
         while(j<m)
         {
             cost+=hc*y[j];
+            vc++;
             j++;
         }
         return cost;
