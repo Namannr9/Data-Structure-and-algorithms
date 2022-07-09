@@ -108,7 +108,6 @@ struct Node
 // It sets pre and suc as predecessor and successor respectively
 void findPreSuc(Node* root, Node*& pre, Node*& suc, int key)
 {
-
     Node *cur=root;
     while(cur)
     {
@@ -136,5 +135,6 @@ void findPreSuc(Node* root, Node*& pre, Node*& suc, int key)
             cur=cur->right;
         }
     }
+
 
 }
