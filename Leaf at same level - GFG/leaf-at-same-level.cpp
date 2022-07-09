@@ -99,21 +99,29 @@ struct Node
 class Solution{
   public:
     /*You are required to complete this method*/
-    bool solve(Node *root,int &pre,int level)
-    {
-        if(root==NULL) return true;
-        if(root->left==NULL && root->right==NULL)
-        {
-            if(pre==-1) pre=level;
-            return pre==level;
-        }
-        return solve(root->left,pre,level+1) && solve(root->right,pre,level+1);
-    }
     bool check(Node *root)
     {
-       int level=0;
-       int pre=-1;
-       return solve(root,pre,level);
+        if(root==NULL) return true;
+        queue<Node *> q;
+        q.push(root);
+        
+        int count=0;
+        while(q.size())
+        {
+            int n=q.size();
+            int count=0;
+            for(int i=0;i<n;i++)
+            {
+                root=q.front();
+                q.pop();
+                if(root->left==NULL && root->right==NULL) count++;
+                if(root->left) q.push(root->left);
+                if(root->right) q.push(root->right);
+            }
+            if(count && count!=n) return false;
+            
+        }
+        return true;
     }
 };
 
