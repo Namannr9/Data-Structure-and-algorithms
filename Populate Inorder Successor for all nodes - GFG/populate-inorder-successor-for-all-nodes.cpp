@@ -126,23 +126,18 @@ struct Node
 class Solution
 {
 public:
-    void inorder(Node *root,Node *&pre)
+    void solve(Node *root,Node * &pre)
     {
         if(root==NULL) return;
-        
-        inorder(root->left,pre);
+        solve(root->left,pre);
         if(pre) pre->next=root;
-        
         pre=root;
-        
-        inorder(root->right,pre);
-        
-        
+        solve(root->right,pre);
     }
     void populateNext(Node *root)
     {
         Node *pre=NULL;
-        inorder(root,pre);
+        solve(root,pre);
     }
 };
 
