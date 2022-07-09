@@ -95,13 +95,11 @@ class Solution{
     // Return True if the given trees are isomotphic. Else return False.
     bool isIsomorphic(Node *a,Node *b)
     {
-        if(a==NULL && b==NULL) return true;
-        if(a==NULL || b==NULL) return false;
-        if(a->data !=b->data) return false;
+        if(a==NULL || b==NULL) return a==b;  // whther both are NULL or not
+        if(a->data!=b->data) return false;
         
         return isIsomorphic(a->left,b->left) && isIsomorphic(a->right,b->right) ||
-                isIsomorphic(a->left,b->right) && isIsomorphic(a->right,b->left);
-        
+               isIsomorphic(a->left,b->right) && isIsomorphic(a->right,b->left);
     }
 };
 
