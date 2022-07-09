@@ -1,5 +1,5 @@
 # Duplicate Subtrees
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given a binary tree of size <strong>N</strong>, your task is to that find&nbsp;all duplicate subtrees from the given binary tree.<br>
 <br>
