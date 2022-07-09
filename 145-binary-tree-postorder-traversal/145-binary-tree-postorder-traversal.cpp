@@ -36,4 +36,38 @@ public:
         }
         return ans;
     }
+    /*
+     vector<int> postorderTraversal(TreeNode* root) 
+    {
+        vector<int> ans;
+        if(root==NULL) return ans;
+        stack<TreeNode *> stk;
+        while(1)
+        {
+            while(root)
+            {
+                if(root->right) stk.push(root->right);
+                stk.push(root);
+                root=root->left;
+            }
+            
+            root=stk.top();
+            stk.pop();
+            if(stk.size() && root->right!=NULL && root->right==stk.top())
+            {
+                stk.pop();
+                stk.push(root);
+                root=root->right;
+            }
+            else
+            {
+                ans.push_back(root->val);
+                root=NULL;
+            }
+            if(stk.size()==0) break;
+        }
+        return ans;
+            
+    }
+    */
 };
