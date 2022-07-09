@@ -92,34 +92,26 @@ class Solution {
   public:
     /*This function returns true if the tree contains 
     a duplicate subtree of size 2 or more else returns false*/
-      void preorder(Node *root,vector<int> &tmp)
+    string solve(Node *root,unordered_map<string,int> &mp,int &ans)
     {
-        if(root==NULL) return;
-        tmp.push_back(root->data);
-        preorder(root->left,tmp);
-        preorder(root->right,tmp);
+        if(root==NULL) return "";
+        if(root->left==NULL && root->right==NULL) return to_string(root->data);
+        string left=solve(root->left,mp,ans);
+        string right=solve(root->right,mp,ans);
+        string tmp=to_string(root->data)+left+right;
+        if(tmp.size()>=2) 
+        {
+            mp[tmp]++;
+            if(mp[tmp]==2) ans=1;
+        }
+        return tmp;
     }
     int dupSub(Node *root) 
     {
-         map<vector<int>,int> mp;
-         queue<Node*> q;
-         q.push(root);
-         while(q.size())
-         {
-             root=q.front();
-             q.pop();
-             vector<int> tmp;
-             preorder(root,tmp);
-             if(tmp.size()>=2)
-             {
-                 mp[tmp]++;
-                 if(mp[tmp]>=2) return 1;
-             }
-             if(root->left) q.push(root->left);
-             if(root->right) q.push(root->right);
-         }
-         return 0;
-         
+         unordered_map<string,int> mp;
+         int ans=0;
+         solve(root,mp,ans);
+         return ans;
     }
 };
 
