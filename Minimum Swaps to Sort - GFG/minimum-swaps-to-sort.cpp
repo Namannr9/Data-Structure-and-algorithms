@@ -12,11 +12,12 @@ class Solution
 	int minSwaps(vector<int>&nums)
 	{
 	    vector<pair<int,int>> ds;
-	    for(int i=0;i<nums.size();i++) ds.push_back({nums[i],i});
+	    int n=nums.size();
+	    for(int i=0;i<n;i++) ds.push_back({nums[i],i});
 	    
 	    sort(ds.begin(),ds.end());
 	    int count=0;
-	    for(int i=0;i<nums.size();i++)
+	    for(int i=0;i<n;i++)
 	    {
 	        if(i!=ds[i].second)
 	        {
@@ -24,7 +25,6 @@ class Solution
 	            count++;
 	            i--;
 	        }
-	        
 	    }
 	    return count;
 	    
