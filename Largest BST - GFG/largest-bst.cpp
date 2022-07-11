@@ -108,7 +108,7 @@ class Solution{
         if(root==NULL) return 0;
         return 1+size(root->left)+size(root->right);
     }
-    void inorder(Node *root,Node* &pre,bool &ans)
+    void inorder(Node *root,Node * &pre,bool &ans)
     {
         if(root==NULL) return;
         inorder(root->left,pre,ans);
@@ -126,6 +126,7 @@ class Solution{
         Node *pre=NULL;
         inorder(root,pre,ans);
         return ans;
+        
     }
     int largestBst(Node *root)
     {
@@ -134,6 +135,7 @@ class Solution{
     	return max(largestBst(root->left),largestBst(root->right));
     }
 };
+
 // { Driver Code Starts.
 
 /* Driver program to test size function*/
