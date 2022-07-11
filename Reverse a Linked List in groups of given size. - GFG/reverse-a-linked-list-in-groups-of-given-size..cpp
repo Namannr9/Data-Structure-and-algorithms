@@ -51,6 +51,24 @@ class Solution
     public:
     struct node *reverse (struct node *head, int k)
     { 
+        if(head==NULL || head->next==NULL) return head;
+        struct node *cur=head;
+        struct node *pre=NULL;
+        struct node *next=NULL;
+        int cnt=k;
+        while(cnt-- && cur)
+        {
+            next=cur->next;
+            cur->next=pre;
+            pre=cur;
+            cur=next;
+        }
+        head->next=reverse(cur,k);
+        return pre;
+    }
+    /*
+    struct node *reverse (struct node *head, int k)
+    { 
         // Complete this method
         struct node *cur=head;
         struct node *pre=NULL;
@@ -86,6 +104,7 @@ class Solution
         }
         return ans;
     }
+    */
 };
 
 
