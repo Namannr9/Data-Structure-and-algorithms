@@ -1,5 +1,5 @@
 # Quick Sort on Linked List
-##  Medium 
+## Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Sort the given <strong>L</strong>inked <strong>L</strong>ist using quicksort. which takes <strong>O(n^2)</strong> time in worst case and <strong>O(nLogn)</strong> in average and best cases, otherwise you may&nbsp;get TLE.</span></p>
 
