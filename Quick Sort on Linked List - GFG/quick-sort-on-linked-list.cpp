@@ -85,7 +85,7 @@ struct node
 }; */
 
 //you have to complete this function
-node *partition(node *head,node *tail)
+node *partition(node *head)
 {
     int pivot=head->data;
     node *cur=head;
@@ -97,7 +97,6 @@ node *partition(node *head,node *tail)
             put=put->next;
             swap(cur->data,put->data);
         }
-        
         cur=cur->next;
     }
     swap(put->data,head->data);
@@ -107,12 +106,12 @@ node * quick(node *head,node *tail)
 {
     if(head!=tail)
     {
-        node *pivot=partition(head,tail);
+        node *pivot=partition(head);
         quick(head,pivot);
         quick(pivot->next,tail);
     }
 }
 void quickSort(struct node **headRef) 
 {
-    quick(*headRef,NULL);
+        quick(*headRef,NULL);    
 }
