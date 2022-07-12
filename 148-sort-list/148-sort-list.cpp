@@ -10,24 +10,27 @@
  */
 class Solution {
 public:
-    ListNode *merge(ListNode *a,ListNode *b)
-    {
-        if(a==NULL) return b;
-        if(b==NULL) return a;
-        
-        ListNode *ans;
-        if(a->val < b->val)
-        {
-            ans=a;
-            ans->next=merge(a->next,b);
-        }
-        else
-        {
-            ans=b;
-            ans->next=merge(a,b->next);
-        }
-        return ans;
-    }
+    
+     ListNode *merge(ListNode *a,ListNode*b)
+     {
+         if(a==NULL) return b;
+         if(b==NULL) return a;
+         
+         ListNode *ans;
+         
+         if(a->val < b->val)
+         {
+             ans=a;
+             ans->next=merge(a->next,b);
+         }
+         else
+         {
+             ans=b;
+             ans->next=merge(a,b->next);
+         }
+         return ans;
+     }
+    
     ListNode *findMid(ListNode *head)
     {
         ListNode *slow=head;
@@ -39,6 +42,7 @@ public:
         }
         return slow;
     }
+    
     ListNode* sortList(ListNode* head) 
     {
         if(head==NULL || head->next==NULL) return head;
@@ -46,8 +50,7 @@ public:
         ListNode *left=head;
         ListNode *right=mid->next;
         mid->next=NULL;
-        
-        left=sortList(left);
+        left=sortList(head);
         right=sortList(right);
         
         return merge(left,right);
