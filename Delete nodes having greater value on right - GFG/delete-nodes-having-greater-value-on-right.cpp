@@ -62,8 +62,9 @@ class Solution
     Node *compute(Node *head)
     {
         head=reverse(head);
-        Node *dummy=new Node(0);
+        
         int max=head->data;
+        Node *dummy=new Node(0);
         Node *ans=dummy;
         while(head)
         {
@@ -72,11 +73,12 @@ class Solution
                 ans->next=head;
                 ans=ans->next;
                 max=head->data;
-            }   
+            }
             head=head->next;
         }
         ans->next=NULL;
-        return reverse(dummy->next);
+        head=reverse(dummy->next);
+        return head;
     }
     
 };
