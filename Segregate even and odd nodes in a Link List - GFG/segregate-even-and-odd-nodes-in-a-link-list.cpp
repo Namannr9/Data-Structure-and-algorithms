@@ -43,16 +43,22 @@ class Solution{
 public:
     Node* divide(int N, Node *head)
     {
-        Node* oddHead=new Node(0);
+        Node *oddHead=new Node(0);
         Node *evenHead=new Node(0);
-        
-        Node* odd=oddHead;
+        Node *odd=oddHead;
         Node *even=evenHead;
-        
         while(head)
         {
-            if(head->data%2==0) even=even->next=head;
-            else odd=odd->next=head;
+            if(head->data%2)
+            {
+                odd->next=head;
+                odd=odd->next;
+            }
+            else
+            {
+                even->next=head;
+                even=even->next;
+            }
             head=head->next;
         }
         odd->next=NULL;
