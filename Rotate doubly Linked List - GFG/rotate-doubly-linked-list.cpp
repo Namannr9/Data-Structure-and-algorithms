@@ -37,23 +37,22 @@ typedef struct node
 
 class Solution {
 public:
-  Node *rotateDLL(Node *head,int p){
-        Node* temp=head;
-        Node* curr=head;
-        while(p-1){
-            curr=curr->next;
-            p--;
-        }
-        Node* temp2=curr->next;
-        head=temp2;
-        curr->next=NULL;
-        temp2->prev=NULL; 
-        while(temp2->next){
-            temp2=temp2->next;
-        }
-        temp2->next=temp;
-        temp->prev=temp2;
-        return head;
+    Node *rotateDLL(Node *start,int p)
+    {
+       Node *oldHead=start; 
+       while(p-- && start)
+       {
+           
+           start=start->next;
+       }
+       
+       start->prev->next=NULL;
+       start->prev=NULL;
+       Node *cur=start;
+       while(cur->next) cur=cur->next;
+       cur->next=oldHead;
+       oldHead->prev=cur;
+       return start;
     }
 };
 
