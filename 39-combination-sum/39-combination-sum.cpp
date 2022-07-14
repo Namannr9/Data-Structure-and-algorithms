@@ -2,7 +2,7 @@ class Solution {
 public:
     void solve(int index,int target,vector<int> &nums,vector<int> &ds,vector<vector<int>> &ans)
     {
-        if(index>=nums.size())
+        if(index>=nums.size() || target==0)
         {
             if(target==0) ans.push_back(ds);
             return;
