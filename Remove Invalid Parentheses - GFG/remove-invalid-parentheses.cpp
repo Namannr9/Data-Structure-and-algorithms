@@ -58,17 +58,20 @@ class Solution {
   
     int findRemoval(string s)
     {
-        stack<char> stk;
+        int sum=0;
+        int count=0;
         for(int i=0;i<s.size();i++)
         {
-            if(s[i]=='(') stk.push(s[i]);
-            else if(s[i]==')')
+            if(s[i]=='(') sum++;
+            else if(s[i]==')') sum--;
+            if(sum<0)
             {
-                if(stk.size() && stk.top()=='(') stk.pop();
-                else stk.push(s[i]);
+                count++;
+                sum=0;
             }
+            
         }
-        return stk.size();
+        return count+abs(sum);
     }
     vector<string> removeInvalidParentheses(string s) 
     {
