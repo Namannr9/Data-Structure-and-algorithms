@@ -14,23 +14,20 @@ public:
     {
         ListNode *ans=new ListNode();
         ListNode *cur=ans;
-        int carry=0;
         int sum=0;
+        int carry=0;
         while(a || b)
         {
-            int x=(a)?a->val:0;
-            int y=(b)?b->val:0;
-            sum=carry+x+y;
+            int x=(a) ? a->val : 0;
+            int y=(b) ? b->val : 0;
+            sum=x+y+carry;
             cur->next=new ListNode(sum%10);
             cur=cur->next;
             carry=sum/10;
             if(a) a=a->next;
             if(b) b=b->next;
         }
-        if(carry>0)
-        {
-            cur->next=new ListNode(carry);
-        }
+        if(carry) cur->next=new ListNode(carry);
         return ans->next;
     }
 };
