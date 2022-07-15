@@ -12,22 +12,22 @@ class Solution {
 public:
     ListNode* partition(ListNode* head, int x) 
     {
-        if(head==NULL || head->next==NULL) return head;
-        ListNode *beforeHead=new ListNode();
-        ListNode *before=beforeHead;
         ListNode *afterHead=new ListNode();
         ListNode *after=afterHead;
+        ListNode *beforeHead=new ListNode();
+        ListNode *before=beforeHead;
         while(head)
         {
             if(head->val < x)
             {
                 before->next=head;
-                before=before->next;
+                before=head;
             }
             else
             {
                 after->next=head;
-                after=after->next;
+                after=head;
+              
             }
             head=head->next;
         }
