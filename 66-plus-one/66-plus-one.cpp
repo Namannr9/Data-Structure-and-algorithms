@@ -3,7 +3,6 @@ public:
     vector<int> plusOne(vector<int>& digits) 
     {
         int n=digits.size();
-        
         for(int i=n-1;i>=0;i--)
         {
             if(digits[i]<9)
@@ -15,8 +14,6 @@ public:
             {
                 if(i==0)
                 {
-                    // 10000
-                    // append one at front of vector
                     digits[i]=0;
                     digits.insert(digits.begin(),1);
                     break;
