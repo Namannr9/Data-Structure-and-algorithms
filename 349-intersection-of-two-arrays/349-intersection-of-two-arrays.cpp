@@ -1,27 +1,25 @@
 class Solution {
 public:
-    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) 
+    vector<int> intersection(vector<int>& a, vector<int>& b) 
     {
+        sort(a.begin(),a.end());
+        sort(b.begin(),b.end());
+        int i=0;
+        int j=0;
         vector<int> ans;
-        sort(nums1.begin(),nums1.end());
-        sort(nums2.begin(),nums2.end());
-        
-        int n1=nums1.size();
-        int n2=nums2.size();
-        int i1=0;
-        int i2=0;
-        while(i1<n1 && i2<n2)
+        while(i<a.size() && j<b.size())
         {
-            if(nums1[i1]==nums2[i2])
+            if(a[i]==b[j])
             {
-                ans.push_back(nums1[i1]);
-                i1++;
-                i2++;
+                ans.push_back(a[i]);
+                i++;
+                j++;
             }
-            else if(nums1[i1]>nums2[i2]) i2++;
-            else i1++;
-            if(i1>0) while(i1<n1 && nums1[i1]==nums1[i1-1]) i1++;
-            if(i2>0) while(i2<n2 && nums2[i2]==nums2[i2-1]) i2++;
+            else if(a[i]<b[j]) i++;
+            else j++;
+            
+            if(i>0) while(i<a.size() && a[i]==a[i-1]) i++;
+            if(j>0) while(j<b.size() && b[j]==b[j-1]) j++;
         }
         return ans;
     }
