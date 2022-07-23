@@ -1,5 +1,6 @@
 class Solution {
 public:
+    
     int findPeakElement(vector<int>& nums) 
     {
         int left=0;
@@ -10,6 +11,7 @@ public:
             if(nums[mid]>nums[mid+1]) right=mid;
             else left=mid+1;
         }
+        cout<<(left==right)<<endl;
         return left;
     }
     /*
