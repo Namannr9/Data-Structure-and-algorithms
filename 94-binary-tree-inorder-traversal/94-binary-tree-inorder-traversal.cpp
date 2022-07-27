@@ -14,23 +14,23 @@ public:
     vector<int> inorderTraversal(TreeNode* root) 
     {
         stack<TreeNode *> stk;
-        TreeNode *cur=root;
         vector<int> ans;
-        while(stk.size() || cur)
+        while(stk.size() || root)
         {
-            if(cur)
+            if(root)
             {
-                stk.push(cur);
-                cur=cur->left;
+                stk.push(root);
+                root=root->left;
             }
             else
             {
-                cur=stk.top();
+                root=stk.top();
                 stk.pop();
-                ans.push_back(cur->val);
-                cur=cur->right;
+                ans.push_back(root->val);
+                root=root->right;
             }
         }
         return ans;
+            
     }
 };
