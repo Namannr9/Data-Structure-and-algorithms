@@ -11,7 +11,32 @@
  */
 class Solution {
 public:
-    vector<vector<int>> levelOrderBottom(TreeNode* root) 
+    //DFS
+   void solve(TreeNode *root,int level,int depth,vector<vector<int>> &ans)
+   {
+       if(root==NULL) return;
+       ans[depth-level-1].push_back(root->val);
+       solve(root->left,level+1,depth,ans);
+       solve(root->right,level+1,depth,ans);
+       
+   }
+   int getDepth(TreeNode *root)
+   {
+       if(root==NULL) return 0;
+       return max(getDepth(root->left),getDepth(root->right))+1;
+   }
+   vector<vector<int>> levelOrderBottom(TreeNode* root) 
+   {
+       int depth=getDepth(root);
+       vector<vector<int>> ans(depth);
+       solve(root,0,depth,ans);
+       return ans;
+        
+   }
+    
+   /*
+   BFS
+   vector<vector<int>> levelOrderBottom(TreeNode* root) 
     {
         vector<vector<int>> ans;
         if(root==NULL) return ans;
@@ -33,4 +58,5 @@ public:
         }
         return ans;
     }
+    */
 };
