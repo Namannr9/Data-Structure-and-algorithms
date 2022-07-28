@@ -11,6 +11,28 @@
  */
 class Solution {
 public:
+    void solve(TreeNode *root,long sum,int targetSum,int &count,unordered_map<long,int> mp)
+    {
+        if(root==NULL) return;
+        sum+=root->val;
+        if(sum==targetSum) count++;
+        if(mp.find(sum-targetSum)!=mp.end()) count+=mp[sum-targetSum];
+        mp[sum]++;
+        solve(root->left,sum,targetSum,count,mp);
+        solve(root->right,sum,targetSum,count,mp);
+        mp[sum]--;
+        
+    }
+    int pathSum(TreeNode* root, int targetSum) 
+    {
+        unordered_map<long ,int > mp;
+        int count=0;
+        solve(root,0,targetSum,count,mp);
+        return count;
+    }
+    
+    /*
+    Time complexity O(n^2)
     void findSum(TreeNode *root,long sum,int &ans)
     {
         if(root==NULL) return;
@@ -32,4 +54,5 @@ public:
         preorder(root,targetSum,ans);
         return ans;
     }
+    */
 };
