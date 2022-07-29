@@ -11,10 +11,10 @@
  */
 class Solution {
 public:
-    TreeNode *solve(int left,int right,vector<int>& nums)
+    TreeNode *solve(int left,int right,vector<int> &nums)
     {
         if(left>right) return NULL;
-        int mid=(left+right)/2;
+        int mid=left+(right-left)/2;
         TreeNode *root=new TreeNode(nums[mid]);
         root->left=solve(left,mid-1,nums);
         root->right=solve(mid+1,right,nums);
@@ -22,7 +22,8 @@ public:
     }
     TreeNode* sortedArrayToBST(vector<int>& nums) 
     {
-        int n=nums.size();
-        return solve(0,n-1,nums);
+        int l=0;
+        int r=nums.size()-1;
+        return solve(l,r,nums);
     }
 };
