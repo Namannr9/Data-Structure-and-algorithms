@@ -14,13 +14,14 @@ public:
     void solve(TreeNode *root,int &maxLevel,int level,vector<int> &ans)
     {
         if(root==NULL) return;
-        if(maxLevel<level)
+        if(maxLevel < level)
         {
             ans.push_back(root->val);
             maxLevel=level;
         }
         solve(root->right,maxLevel,level+1,ans);
         solve(root->left,maxLevel,level+1,ans);
+        
     }
     vector<int> rightSideView(TreeNode* root) 
     {
