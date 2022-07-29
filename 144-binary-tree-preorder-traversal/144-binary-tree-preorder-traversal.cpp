@@ -21,13 +21,10 @@ public:
         {
             root=stk.top();
             stk.pop();
-            
             ans.push_back(root->val);
             if(root->right) stk.push(root->right);
             if(root->left) stk.push(root->left);
         }
         return ans;
-        
-            
     }
 };
