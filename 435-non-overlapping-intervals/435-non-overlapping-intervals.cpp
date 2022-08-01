@@ -16,6 +16,7 @@ public:
             {
                 count++;
                 preEnd=min(preEnd,intervals[i][1]);
+                // [1,2] and [1,3] so we remove [1,3]
             }
         }
         return count;
