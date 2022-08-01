@@ -5,6 +5,7 @@ public:
         if(s.size()==0)
         {
             tmp=tmp.substr(0,tmp.size()-1);
+            //tmp.erase(tmp.begin()+tmp.size()-1);
             ans.push_back(tmp);
             return;
         }
