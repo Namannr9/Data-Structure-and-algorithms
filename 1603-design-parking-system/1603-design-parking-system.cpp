@@ -9,6 +9,7 @@ public:
     
     bool addCar(int carType) 
     {
+        // first return space is available or not and then decrement value
         return space[carType-1]-- > 0;   
     }
 };
