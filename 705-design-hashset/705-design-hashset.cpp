@@ -1,3 +1,8 @@
+/*
+If there are large number are present so we cannot handle them by using simple vector or array.
+instead of using large size array we use channing technique to handle this problem we make 100 size array each array index 
+store a address of linked list. for calculating index we use hash function.
+*/
 class MyHashSet {
     vector<list<int>> mp;
     int size;
