@@ -1,5 +1,8 @@
 class Solution {
 public:
+    /*
+    for every row we are calculating largest area in histogram
+    */
     int maxArea(vector<int> heights)
     {
         stack<int> st;
