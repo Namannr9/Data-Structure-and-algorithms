@@ -1,5 +1,27 @@
 class Solution {
 public:
+    // getline act as java split
+    string simplifyPath(string path) 
+    {
+        string tmp;
+        stringstream arr(path);
+        vector<string> stk;
+        while(getline(arr,tmp,'/'))
+        {
+            if(tmp=="" || tmp==".") continue;
+            if(tmp=="..")
+            {
+                if(stk.size()) stk.pop_back();
+            }
+            else stk.push_back(tmp);
+        }
+        if(stk.size()==0) return "/";
+        string ans;
+        for(string s:stk) ans+="/"+s;
+        return ans;
+    }
+};
+/*
     string simplifyPath(string path) 
     {
         int n=path.size();
@@ -25,8 +47,4 @@ public:
         }
         return ans;
     }
-    
-    
-    
-    
-};
+*/
