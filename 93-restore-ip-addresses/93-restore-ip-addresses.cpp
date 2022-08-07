@@ -19,15 +19,10 @@ public:
             
             cur=cur+s[i];
             
-            if(stoi(cur)>=0 && stoi(cur)<=255)
-            {
-                string tmp=pre;
-                pre=pre+cur+".";
-                solve(i+1,dot+1,s,pre,ans);
+            if(stoi(cur)>255) return;
+            
+            solve(i+1,dot+1,s,pre+cur+".",ans);
                 
-                pre=tmp; // restore
-            }
-            else if(stoi(cur)>255) return;
         }
     }
     vector<string> restoreIpAddresses(string s) 
