@@ -14,7 +14,8 @@ public:
         }
         
         string ans="";
-        for(string a:v) ans+=a;
+        for(string tmp : v) ans+=tmp;
+        
         return ans;
         
     }
