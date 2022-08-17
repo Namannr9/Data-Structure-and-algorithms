@@ -1,21 +1,19 @@
 class Solution {
 public:
-    string findPalindrome(string s,int left,int right)
+    string findPalindrome(string s,int l,int r)
     {
-        int n=s.size();
-        while(left>=0 && right<n && s[left]==s[right])
+        while(l>=0 && r<s.size() && s[l]==s[r])
         {
-            left--;
-            right++;
+            l--;
+            r++;
         }
-        return s.substr(left+1,right-left-1);
+        return s.substr(l+1,r-l-1);
     }
     string longestPalindrome(string s) 
     {
         int n=s.size();
         if(n<2) return s;
         string ans="";
-        ans+=s[0];
         for(int i=0;i<n-1;i++)
         {
             string odd=findPalindrome(s,i,i);
