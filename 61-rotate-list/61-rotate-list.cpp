@@ -12,24 +12,34 @@ class Solution {
 public:
     ListNode* rotateRight(ListNode* head, int k) 
     {
+        
         if(head==NULL || head->next==NULL) return head;
-        int len=1;
         ListNode *cur=head;
+        int len=1;
         while(cur->next)
         {
             len++;
             cur=cur->next;
         }
         
-        cur->next=head; // making it circular
+        // len store length of linked list
+        
+        cur->next=head;  // making linked list circular
+        
+        
         k=k%len;
         k=len-k;
-        while(k--)
+        
+        
+        while(k--) 
         {
             cur=cur->next;
         }
+        
         head=cur->next;
         cur->next=NULL;
         return head;
+            
+    
     }
 };
