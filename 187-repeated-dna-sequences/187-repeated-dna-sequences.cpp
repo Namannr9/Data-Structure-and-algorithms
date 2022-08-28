@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<string> findRepeatedDnaSequences(string s) 
     {
-        unordered_map<string,int> fre;
+        map<string,int> fre;
         
         for(int i=0;i<s.size();i++)
         {
