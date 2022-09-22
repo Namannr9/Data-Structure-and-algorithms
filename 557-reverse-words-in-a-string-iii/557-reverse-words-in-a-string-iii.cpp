@@ -18,7 +18,7 @@ public:
                 st=i+1;
             }
         }
-        reverse(s,st,s.size()-1);
+       reverse(s,st,s.size()-1);
         return s;
     }
 };
