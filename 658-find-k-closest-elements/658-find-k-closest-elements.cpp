@@ -2,22 +2,18 @@ class Solution {
 public:
     vector<int> findClosestElements(vector<int>& arr, int k, int x) 
     {
-        int n=arr.size();
         int left=0;
-        int right=n-k;
-        while(left<right)
+        int right=arr.size()-1;
+        while(right-left>=k)
         {
-            int mid=(left+right)/2;
-            if(x-arr[mid] > arr[mid+k]-x) left=mid+1;
-            else right=mid;
+            if(x-arr[left] <= arr[right]-x) right--;
+            else left++;
         }
-        vector<int> ans;
-        for(int i=0;i<k;i++)
-        {
-            ans.push_back(arr[left+i]);
-        }
-        return ans;
         
+        vector<int> ans;
+        for(int i=left;i<=right;i++) ans.push_back(arr[i]);
+        return ans;
+            
     }
     /*
     vector<int> findClosestElements(vector<int>& arr, int k, int x) 
