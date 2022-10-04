@@ -3,9 +3,9 @@ public:
     int singleNumber(vector<int>& nums) 
     {
         int ans=0;
-        for(int num : nums)
+        for(int a:nums)
         {
-            ans=ans^num;
+            ans=ans^a;
         }
         return ans;
     }
