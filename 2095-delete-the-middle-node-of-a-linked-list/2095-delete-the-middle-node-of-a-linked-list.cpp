@@ -22,7 +22,7 @@ public:
             fast=fast->next->next;
         }
         if(pre!=NULL && pre->next!=NULL) pre->next=pre->next->next;
-        else return pre;
+        else return NULL;
         return head;
     }
 };
