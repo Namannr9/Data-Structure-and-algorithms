@@ -31,7 +31,7 @@ public:
             auto p=stk.top();
             stk.pop();
             
-            string tmp(p.second,p.first);
+            string tmp(p.second,p.first);  // string tmp(4,'c') -> cccc
             
             ans+=tmp;
         }
