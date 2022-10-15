@@ -2,38 +2,43 @@ class Solution {
 public:
     string removeDuplicates(string s, int k) 
     {
-            int n = s.length();
-        vector<int> continousFreqCount(n, 1);
-        stack<int> st;
-        string ans;
+        stack<pair<char,int>> stk;
         
-        st.push(0);
+        string ans="";
         
-        for(int i = 1; i < n ; i++){
-            
-            if(!st.empty()){
-                if(s[st.top()]==s[i]) continousFreqCount[i] = continousFreqCount[st.top()] + 1;
-            }
-            
-            st.push(i);
-            
-            if(continousFreqCount[st.top()] == k){
-                for(int i = 0 ; i < k ; i++){
-                    st.pop();
+        for(int i=0;i<s.size();i++)
+        {
+            if(stk.empty()) stk.push({s[i],1});
+            else
+            {
+                if(s[i]==stk.top().first)
+                {
+                    auto p=stk.top();
+                    stk.pop();
+                    p.second++;
+                    if(p.second==k) continue;
+                    else stk.push(p);
+                }
+                else
+                {
+                    stk.push({s[i],1});
                 }
             }
-            
         }
         
-        while(!st.empty()){
+        while(stk.size())
+        {
+            auto p=stk.top();
+            stk.pop();
             
-            ans += s[st.top()];
-            st.pop();
+            string tmp(p.second,p.first);
             
+            ans+=tmp;
         }
         
-        reverse(ans.begin(), ans.end());
-        
+        reverse(ans.begin(),ans.end());
         return ans;
+        
+        
     }
 };
