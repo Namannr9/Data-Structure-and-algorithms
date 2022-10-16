@@ -1,20 +1,17 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 #include<bits/stdc++.h>
 using namespace std;
 
- // } Driver Code Ends
+// } Driver Code Ends
 class Solution {
 	public:
-	/*
-	vis vector store the frequency of character
-	In queue we store non repeating element
-	*/
 		string FirstNonRepeating(string s)
 		{
 		    queue<char> q;
 		    vector<int> vis(26,0);
+		    
+		    
 		    string ans="";
-	
 		    
 		    for(int i=0;i<s.size();i++)
 		    {
@@ -31,11 +28,12 @@ class Solution {
 		        else ans+="#";
 		    }
 		    return ans;
+		    
 		}
 
 };
 
-// { Driver Code Starts.
+//{ Driver Code Starts.
 int main(){
 	int tc;
 	cin >> tc;
@@ -47,4 +45,5 @@ int main(){
 		cout << ans << "\n";
 	}
 	return 0;
-}  // } Driver Code Ends
+}
+// } Driver Code Ends
