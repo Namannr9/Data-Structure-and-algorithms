@@ -2,6 +2,23 @@ class Solution {
 public:
     vector<int> findErrorNums(vector<int>& nums) 
     {
+        sort(nums.begin(),nums.end());
+        int mis=1;
+        int twice;
+        
+        for(int i=0;i<nums.size();i++)
+        {
+            if(mis==nums[i]) mis++;
+            
+            if(i>0 && nums[i]==nums[i-1]) twice=nums[i];
+        }
+        
+        return {twice,mis};
+            
+    }
+    /*
+    vector<int> findErrorNums(vector<int>& nums) 
+    {
         unordered_map<int,int> mp;
         
         for(int a:nums) mp[a]++;
@@ -18,4 +35,5 @@ public:
         
         return ans;
     }
+    */
 };
