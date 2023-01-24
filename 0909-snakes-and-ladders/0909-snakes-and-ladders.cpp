@@ -4,21 +4,12 @@ public:
     {
         int row = n - (val - 1) / n - 1;
         int col = (val - 1) % n;
-        if (row % 2 == n % 2) {
+        if(row % 2 == n % 2)
+        {
             return {row, n - 1 - col};
-        } else {
-            return {row, col};
         }
-        // int row=(val-1)/n;
-        // int col=(val%n)-1;
-        // if(row%2==0) // even
-        // {
-        //     return {row,col};
-        // }
-        // else
-        // {
-        //     return {row,n-col-1};
-        // }
+        
+        return {row,col};  
     }
     int snakesAndLadders(vector<vector<int>>& board) 
     {
