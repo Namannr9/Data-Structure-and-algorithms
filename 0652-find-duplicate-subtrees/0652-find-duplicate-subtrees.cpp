@@ -11,6 +11,24 @@
  */
 class Solution {
 public:
+    string solve(TreeNode *root,unordered_map<string ,int> &mp,vector<TreeNode *> &ans)
+    {
+        if(root==NULL) return "";
+        string s="("+solve(root->left,mp,ans)+" "+to_string(root->val)+" "+solve(root->right,mp,ans)+")";
+        mp[s]++;
+        if(mp[s]==2) ans.push_back(root);
+        return s;
+    }
+    vector<TreeNode*> findDuplicateSubtrees(TreeNode* root) 
+    {
+        unordered_map<string,int> mp;
+        vector<TreeNode *> ans;
+        solve(root,mp,ans);
+        return ans;
+    }
+
+
+    /*
     void preorder(TreeNode *root,string &s)
     {
         if(root==NULL) return;
@@ -40,4 +58,5 @@ public:
         solve(root,ans,mp);
         return ans;
     }
+    */
 };
