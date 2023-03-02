@@ -2,11 +2,11 @@ class Solution {
 public:
     int compress(vector<char>& s) 
     {
-        int k=0;
         int i=0;
+        int j=0;
+        int k=0;
         int n=s.size();
-        int j;
-        while(i<n)
+        while(j<n)
         {
             j=i;
             while(j<n && s[i]==s[j]) j++;
@@ -15,8 +15,8 @@ public:
             
             if(count>1)
             {
-                string tmp=to_string(count);
-                for(char c:tmp) s[k++]=c;
+                string num=to_string(count);
+                for(char c : num) s[k++]=c;
             }
             i=j;
         }
