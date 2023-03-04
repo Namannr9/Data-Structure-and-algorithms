@@ -25,6 +25,7 @@ public:
             if (minFound && maxFound) 
             {
                 ans+=min(minStart,maxStart)-start+1;
+                cout<<ans<<endl;
             }
         }
         return ans;
