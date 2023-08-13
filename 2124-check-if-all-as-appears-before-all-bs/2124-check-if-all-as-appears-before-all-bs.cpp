@@ -2,14 +2,10 @@ class Solution {
 public:
     bool checkString(string s) 
     {
-        bool a=false;
-        bool b=false;
-        for(char c : s)
-        {
-            if(c=='a' && b==true) a=true;
-            else if(c=='b') b=true;
-            if(b==true && a==true) return false;
-        }
+       for(int i=1;i<s.size();i++)
+       {
+           if(s[i-1]=='b' && s[i]=='a') return false;
+       }
         return true;
     }
 };
